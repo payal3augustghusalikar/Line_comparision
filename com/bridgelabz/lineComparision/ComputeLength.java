@@ -4,42 +4,57 @@ import java.util.Scanner;
 import java.lang.Math.*;
 
 public class ComputeLength {
-	
-
-
-	public static void main(String[] args) {
-		System.out.println("Welcome to Line comparision Computation");
+	double[] a = new double[2];
+	void findLength() {
+		
+		Scanner sc=new Scanner(System.in);
 		int x1,x2,y1,y2; 
-	    double lengthOfLine;
+		double lengthOfLine;
+		int count=1, loop;
+		System.out.println("Enter count of lines to find length");
+		
+		loop=sc.nextInt();
+		while (count<=2) {
+			for(int i=0; i<loop; i++) {
+		
+				System.out.println("enter the points for  line " + count );	
+				System.out.println("enter x1 point");
+				x1=sc.nextInt();
 
-	    Scanner sc=new Scanner(System.in);
+				System.out.println("enter y1 point");
+				y1=sc.nextInt();	
+			
+				System.out.println("enter x2point");
+				x2=sc.nextInt();
 
-	    System.out.println("enter x1 point");
-
-	        x1=sc.nextInt();
-
-	        System.out.println("enter y1 point");
-
-	        y1=sc.nextInt();
-
-	    System.out.println("enter x2point");
-
-	        x2=sc.nextInt();
-
-	    System.out.println("enter y2 point");
-
-	        y2=sc.nextInt();
-		    
-	lengthOfLine=Math.sqrt((x2-x1)^2+(y2-y1)^2);
-	System.out.println("length of line is"+"("+x1+","+y1+"),"+"("+x2+","+y2+")===>"+ lengthOfLine);
-		/*
-		 * ComputeLength line = new ComputeLength(); line.ComputeLength();
-		 */
+				System.out.println("enter y2 point");
+				y2=sc.nextInt();
+				
+				lengthOfLine=Math.sqrt((x2-x1)^2+(y2-y1)^2);
+				System.out.println("length of line" + count + "is"+ "("+x1+","+y1+"),"+"("+x2+","+y2+")===>"+ lengthOfLine);
+				count++;
+				a[i] = (double) lengthOfLine; 
+			}
+		}
 	}
 
-	/*
-	 * private static double sqrt(int i) { // TODO Auto-generated method stub return
-	 * 0; }
-	 */
-
+	 void equalLength() { 
+		Double line1=a[0];
+		Double line2= a[1];
+		if (line1.equals(line2)==true) {
+			System.out.println("lines have equal length");
+			}else
+			System.out.println("Lines do not have equal length");	
+	}	
+	public static void main(String[] args) {
+		System.out.println("Welcome to Line comparision Computation");
+		ComputeLength length = new ComputeLength();
+		length.findLength();
+		length.equalLength();	
+	}		
 }
+		/*for (int i=0; i<a.length; i++)
+		{*/
+		/*	System.out.println(a[index]);*/
+		/*}*/
+	
